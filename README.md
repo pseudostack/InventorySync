@@ -1,3 +1,5 @@
+Uses Selenium via Python to:
+
 -Login to dealer pull
 
 -Navigate to Inventory
