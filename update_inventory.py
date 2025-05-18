@@ -10,7 +10,7 @@ import time
 from ftplib import FTP
 
 # --- Configuration ---
-DEALERPULL_LOGIN_URL = "https://dealerpull.auth0.com/u/login?state=hKFo2SBSMU1KOFl5U3RYdHo5c0dWZ3lEbFJieE45a3dOXzFOa6Fur3VuaXZlcnNhbC1sb2dpbqN0aWTZIHlfamNjY1hZUFYzVTJ5dlhOeGxCOUpaX0p4RFhaSDBao2NpZNkgQWV4QnNrSFlFc1NoNEZoRHBWSkowdGZsOEk3TmxIa2M"
+DEALERPULL_LOGIN_URL = "https://app.dealerpull.com/login"
 INVENTORY_PAGE_URL = "https://app.dealerpull.com/inventory-list"
 DOWNLOAD_DIR = os.path.join(os.path.expanduser("~"), "Downloads")
 EXPORTED_FILENAME = "inventory_Export.csv"
@@ -28,6 +28,10 @@ LOGIN_PASS = "B2010luetooth5!"
 chrome_options = Options()
 prefs = {"download.default_directory": DOWNLOAD_DIR}
 chrome_options.add_experimental_option("prefs", prefs)
+chrome_options.add_argument("--headless")  # 👈 runs Chrome in headless mode
+chrome_options.add_argument("--disable-gpu")  # good practice for Windows
+chrome_options.add_argument("--window-size=1920,1080")  # optional, can help with layout
+
 driver = webdriver.Chrome(options=chrome_options)
 
 try:
